@@ -63,15 +63,16 @@
 	  const $ = document.querySelector.bind(document);
     function init() {
         const names = Object.keys(songs);
-        const random = arr => arr[Math.floor(Math.random() * arr.length)];
+        const random = () => names[Math.floor(Math.random() * names.length)];
         const $answer = $('#answer');
+        const $lyric = $('#lyric');
         let answer = '';
 
         const next = function () { 
-          const name = random(names);
-          $('#lyric').innerText = random(songs[name].split('\n').filter(x => x.split(' ').length > 3));
+          const name = random();
+          $lyric.innerText = random();
 
-          $('#answer').innerText = "";
+          $answer.innerText = "";
           answer = name;
         };
 
